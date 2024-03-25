@@ -1,0 +1,33 @@
+import { FunctionComponent } from "react";
+import clsx from "clsx";
+
+{{#if variants}}
+type {{name}}Variants = "default" | "error"{{#if disable}} | "disabled"{{/if}};
+
+const use{{name}}Variants = (variant: {{name}}Variants) => {
+  const definedVariants: { [T in {{name}}Variants]: { className: string } } = {
+    default: { className: "" },
+    error: { className: "" },{{#if disable}}
+    disabled: { className: "" },{{/if}}
+  };
+  return definedVariants[variant];
+};
+
+{{/if}}
+{{#if variants}}
+interface {{name}}Props {
+  variant?: {{name}}Variants;{{#if disable}}
+  disabled?: boolean;{{/if}}
+}
+
+{{else}}interface {{name}}Props {}
+
+{{/if}}
+export const {{name}}: FunctionComponent<{{name}}Props> = ({ {{#if variants}}variant = "default", {{/if}}{{#if disable}}disabled, {{/if}}...props }) => {
+  {{#if disable}}const setVariant = (disabled? "disabled" : variant) as {{name}}Variants;{{/if}}
+  {{#if variants}}const classNames = clsx("", use{{name}}Variants({{#if disable}}setVariant{{else}}variant{{/if}}).className);
+
+  {{else}}const classNames = clsx("")
+
+  {{/if}}return <div {...props} className={classNames}></div>;
+}
