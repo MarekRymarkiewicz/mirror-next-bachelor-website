@@ -117,7 +117,7 @@ export default function Home() {
             Świątecznej Pomocy. Według badań opinii publicznej fundacja od lat
             cieszy się największym zaufaniem wśród organizacji trzeciego
             sektora, instytucji państwowych i kościelnych.
-            <h2>Wyniki finałów WOŚP</h2>
+            <h1 className="text-lg my-2 font-semibold">Wyniki finałów WOŚP:</h1>
             <DonationHistory
               entries={[
                 {

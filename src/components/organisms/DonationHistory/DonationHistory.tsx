@@ -16,8 +16,11 @@ export const DonationHistory: FunctionComponent<DonationHistoryProps> = ({
     return (
       <div className="py-6">
         {entries.map((entry, index) => (
-          <TrailedLog key={index} date={entry.date}>
-            {entry.date.toLocaleDateString("pl-pl")} - {entry.entry}
+          <TrailedLog key={index}>
+            <b className="font-semibold">
+              {entry.date.toLocaleDateString("pl-pl")}
+            </b>{" "}
+            - {entry.entry}
           </TrailedLog>
         ))}
       </div>
@@ -28,8 +31,11 @@ export const DonationHistory: FunctionComponent<DonationHistoryProps> = ({
   return (
     <div className="py-6">
       {prepend.map((entry, index) => (
-        <TrailedLog key={index} date={entry.date}>
-          {entry.date.toLocaleDateString("pl-pl")} - {entry.entry}
+        <TrailedLog key={index}>
+          <b className="font-semibold">
+            {entry.date.toLocaleDateString("pl-pl")}
+          </b>{" "}
+          - {entry.entry}
         </TrailedLog>
       ))}
       <div>
@@ -55,8 +61,11 @@ export const DonationHistory: FunctionComponent<DonationHistoryProps> = ({
         </div>
       </div>
       {append.map((entry, index) => (
-        <TrailedLog key={index} date={entry.date}>
-          {entry.date.toLocaleDateString("pl-pl")} - {entry.entry}
+        <TrailedLog key={index}>
+          <b className="font-semibold">
+            {entry.date.toLocaleDateString("pl-PL")}
+          </b>{" "}
+          - {entry.entry}
         </TrailedLog>
       ))}
     </div>
