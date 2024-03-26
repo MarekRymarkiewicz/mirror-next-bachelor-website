@@ -40,10 +40,28 @@ export const Footer: FunctionComponent<FooterProps> = () => {
           .
         </FooterCard>
         <FooterCard title="Kontakt">
-          <address>
+          <address className="not-italic">
             <ul>
-              <li>email: m.rymarkiewicz@op.pl</li>
-              <li>Repozytorium: https:...</li>
+              <li>
+                email:{" "}
+                <a
+                  href="mailto:m.rymarkiewicz@op.pl"
+                  className="text-blue-300 visited:text-blue-400 underline"
+                >
+                  m.rymarkiewicz@op.pl
+                </a>
+              </li>
+              <li>
+                Repozytorium:{" "}
+                <Link
+                  href={
+                    "https://github.com/MarekRymarkiewicz/mirror-next-bachelor-website"
+                  }
+                  className="text-blue-300 visited:text-blue-400 underline"
+                >
+                  mirror-next-bachelor-website
+                </Link>
+              </li>
             </ul>
           </address>
         </FooterCard>
